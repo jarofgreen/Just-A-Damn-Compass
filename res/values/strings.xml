@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="app_name">Just A Damn Compass</string>
-
+	<string name="app_name">Just A Damn Compass</string>
+	<string name="about_menu">About</string>
+	<string name="about_text">
+		This app is just a compass.
+		\n	    
+		\nMore information and the source code is at https://github.com/jarofgreen/Just-A-Damn-Compass
+		\n
+		\nPlease report problems at https://github.com/jarofgreen/Just-A-Damn-Compass/issues
+		\n
+		\nCopyright &#169; 2007 The Android Open Source Project
+		\nCopyright &#169; 2011 James Baster
+		\n
+		\nLicensed under the Apache License, Version 2.0 (the "License");
+		you may not use this file except in compliance with the License.
+		You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+		\n
+		\nUnless required by applicable law or agreed to in writing, software 
+		distributed under the License is distributed on an "AS IS" BASIS, 
+		WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+		See the License for the specific language governing permissions and 
+		limitations under the License.
+	</string>
 </resources>

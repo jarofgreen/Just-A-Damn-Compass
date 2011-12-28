@@ -1,14 +1,19 @@
 package uk.co.jarofgreen.JustADamnCompass;
 
+import uk.co.jarofgreen.JustADamnCompass.AboutActivity;
 import android.app.Activity;
 import android.os.Bundle;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.*;
 import android.graphics.drawable.Drawable;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 public class MainActivity extends Activity {
@@ -76,6 +81,25 @@ public class MainActivity extends Activity {
 
         }
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main, menu);
+        return true;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+        case R.id.about:
+        	Intent i = new Intent(this, AboutActivity.class);            	
+        	startActivity(i);            
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
+        }
     }
     
 }
