@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.*;
-import android.graphics.drawable.Drawable;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
