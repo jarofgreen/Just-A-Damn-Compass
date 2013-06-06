@@ -90,20 +90,11 @@ public class MainActivity extends Activity {
 		private int nHeight;
 		private Matrix matrix = new Matrix();
 		private Matrix rotator = new Matrix();
+		private Bitmap a;
+		private Bitmap b;
 
         public SampleView(Context context) {
             super(context);            
-            
-            // variables
-            
-            Display display = getWindowManager().getDefaultDisplay();
-            w = display.getWidth();
-            h = display.getHeight();
-
-            Log.d(TAG,"width: "+w+" height: "+h);
-            
-    		Bitmap a;
-    		Bitmap b;
 			if(invert) { 
     			a = BitmapFactory.decodeResource(getResources(), R.drawable.background);
     			b = BitmapFactory.decodeResource(getResources(), R.drawable.compass_black);
@@ -111,7 +102,37 @@ public class MainActivity extends Activity {
     		else {
     			a = BitmapFactory.decodeResource(getResources(), R.drawable.background_black);
     			b = BitmapFactory.decodeResource(getResources(), R.drawable.compass_white);
-    		}
+    		}           
+        }
+
+        @Override protected void onDraw(Canvas canvas) {
+    		// center
+    		
+            canvas.translate(0, h/2-nHeight/2);
+            
+            // rotate
+            
+            if (mValues != null) {
+                rotator.setRotate(-mValues[0], nWidth/2, nHeight/2);
+            }
+            
+            canvas.drawBitmap(backgroundImage, matrix, null);
+            canvas.drawBitmap(compassImage, rotator, null);
+           
+
+        }
+        
+        @Override
+        protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+            // variables
+
+            w = MeasureSpec.getSize(widthMeasureSpec);
+            h = MeasureSpec.getSize(heightMeasureSpec);
+            
+            Log.d(TAG,"width: "+w+" height: "+h);
+            
             int mHeight = b.getHeight();
             int mWidth = b.getWidth();
             
@@ -129,23 +150,6 @@ public class MainActivity extends Activity {
 
     		backgroundImage = Bitmap.createScaledBitmap(a, nWidth, nHeight, false);
     		compassImage = Bitmap.createScaledBitmap(b, nWidth, nHeight, false);
-            
-        }
-
-        @Override protected void onDraw(Canvas canvas) {
-    		// center
-    		
-            canvas.translate(0, h/2-nHeight/2);
-            
-            // rotate
-            
-            if (mValues != null) {
-                rotator.setRotate(-mValues[0], nWidth/2, nHeight/2);
-            }
-            
-            canvas.drawBitmap(backgroundImage, matrix, null);
-            canvas.drawBitmap(compassImage, rotator, null);
-           
 
         }
 
