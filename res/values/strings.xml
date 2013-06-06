@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="app_name">Just A Damn Compass</string>
+	<string name="invert_menu">Invert</string>
 	<string name="about_menu">About</string>
 	<string name="about_text">
 		This app is just a compass.
